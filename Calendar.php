@@ -10,6 +10,9 @@
 	<i> at the current moment? </i> now you will know </p>
 	
 	<?php
+		#Last modified on 9/27/2018
+		//****************************************************************************
+		
 		date_default_timezone_set('America/New_York'); #Eastern Standard Time
 		$timeZone = date("e");
 		$month = date("F");
