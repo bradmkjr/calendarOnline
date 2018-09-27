@@ -3,6 +3,8 @@
 	<head>
 		<title> Calendar online </title>
 		<h1> Welcome to Kyle's Online Calendar </h1>
+		<link rel="stylesheet" href="calendarStyle.css">
+		<script src="calendarScript.js"></script>
 	</head>
 	<meta http-equiv="refresh" content="1" > 
 	<body>
