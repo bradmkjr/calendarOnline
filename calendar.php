@@ -19,11 +19,9 @@
 		$seconds = date( "s", $currentTime );
 		
 		$results = "The time zone is set to " . $timeZone . "<br>";
-		$results = "Today is " . $day . "<br> " . $month .		
-		", the " . $date . $dateSuff . "<br>
-		The Year " . $year . "<br>
-		Day " . $dayYear . " of the year <br>
-		The time is " . $hours . ":" . $minutes . " and " . $seconds . " seconds";
+		$results .= "Today is " . $day . "<br> " . $month . ", the " . $date . $dateSuff;
+		$results .= "<br>The Year " . $year . "<br>Day " . $dayYear . " of the year ";
+		$results .=  "<br>The time is " . $hours . ":" . $minutes . " and " . $seconds . " seconds";
 
 		// return time as json object
-		echo json_encode( $results );
+		echo json_encode( array( "message" =>  $results) );
