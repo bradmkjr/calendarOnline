@@ -1,39 +1,29 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title> Calendar online </title>
-		<h1> Welcome to Kyle's Online Calendar </h1>
-		<link rel="stylesheet" href="calendarStyle.css">
-		<script src="calendarScript.js"></script>
-	</head>
-	<meta http-equiv="refresh" content="1" > 
-	<body>
-	<p> You ever wonder what time it is 
-	<i> at the current moment? </i> now you will know </p>
-	
-	<?php
+<?php
 		#Last modified on 9/27/2018
 		//****************************************************************************
 		
 		date_default_timezone_set('America/New_York'); #Eastern Standard Time
-		$timeZone = date("e");
-		$month = date("F");
-		$day = date("l");
-		$date = date("d");
-		$dateSuff = date("S");
-		$dayYear = date("z");
-		$year = date("Y");
-		$hours = date("g");
-		$minutes = date("i");
-		$seconds = date("s");
+
+		// Set the time to a variable to ensure all date functions are based off same value
+		$currentTime = time();
+
+		$timeZone = date( "e", $currentTime );
+		$month = date( "F", $currentTime );
+		$day = date( "l", $currentTime );
+		$date = date( "d", $currentTime );
+		$dateSuff = date( "S", $currentTime );
+		$dayYear = date( "z", $currentTime );
+		$year = date( "Y", $currentTime );
+		$hours = date( "g", $currentTime );
+		$minutes = date( "i", $currentTime );
+		$seconds = date( "s", $currentTime );
 		
-		echo "The time zone is set to " . $timeZone . "<br>";
-		echo "Today is " . $day . "<br> " . $month .		
+		$results = "The time zone is set to " . $timeZone . "<br>";
+		$results = "Today is " . $day . "<br> " . $month .		
 		", the " . $date . $dateSuff . "<br>
 		The Year " . $year . "<br>
 		Day " . $dayYear . " of the year <br>
 		The time is " . $hours . ":" . $minutes . " and " . $seconds . " seconds";
-	?>
-	
-	</body>
-</html>
+
+		// return time as json object
+		echo json_encode( $results );
