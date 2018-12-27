@@ -18,4 +18,4 @@ function loadTime(){
     }
 }
 
-setInterval(loadTime(), 1000);
+setInterval(loadTime, 1000);
