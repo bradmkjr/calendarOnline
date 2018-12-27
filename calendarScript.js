@@ -1,15 +1,19 @@
-var xmlhttp = new XMLHttpRequest();
-var url = "calendar.php";
+function loadTime(){
+    var xmlhttp = new XMLHttpRequest();
+    var url = "calendar.php";
 
-xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        var message = JSON.parse(this.responseText).message;
-        myFunction(message);
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var message = JSON.parse(this.responseText).message;
+            myFunction(message);
+        }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+
+    function myFunction(message) {
+        document.getElementById("currentTime").innerHTML = message;
     }
-};
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
-
-function myFunction(message) {
-    document.getElementById("currentTime").innerHTML = message;
 }
+
+setInterval(loadTime(), 1000);
