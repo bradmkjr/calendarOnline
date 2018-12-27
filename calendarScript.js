@@ -1,4 +1,5 @@
 function loadTime(){
+    console.log('Loading Time...');
     var xmlhttp = new XMLHttpRequest();
     var url = "calendar.php";
 
@@ -13,6 +14,7 @@ function loadTime(){
 
     function myFunction(message) {
         document.getElementById("currentTime").innerHTML = message;
+        console.log('Time Updated');
     }
 }
 
